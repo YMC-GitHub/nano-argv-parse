@@ -19,7 +19,7 @@ jobs:
     # if: ${{ github.repository_owner == 'ymc-github' }}
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write # allow GITHUB_TOKEN to release repo
       packages: write # allow GITHUB_TOKEN to publish packages
     steps:
       - name: checkout your repository
