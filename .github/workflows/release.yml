@@ -77,7 +77,7 @@ jobs:
         with:
             # token: ${{ secrets.GITHUB_TOKEN }}
             token: ${{ secrets.GHZ_TOKEN }}
-            registry: "https://npm.pkg.github.com"
+            registry: "https://npm.pkg.github.com/"
 
       - if: steps.publishtogh.outputs.type
         run: |
