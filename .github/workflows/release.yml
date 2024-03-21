@@ -62,7 +62,7 @@ jobs:
         run: pnpm install
 
       - name: Build npm Packages
-        run: pnpm run build --if-present
+        run: pnpm run build
 
       - name: Publish to registry.npmjs.org
         uses: JS-DevTools/npm-publish@v3
