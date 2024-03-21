@@ -69,27 +69,22 @@ jobs:
         with:
             token: ${{ secrets.NPM_TOKEN }}
             registry: "https://registry.npmjs.org/"
-            dry-run: true
+            dry-run: false
 
       # fail
-      - name: Publish to npm.pkg.github.com
-        id: publishtogh
-        uses: JS-DevTools/npm-publish@v3
-        with:
-            # token: ${{ secrets.GITHUB_TOKEN }}
-            token: ${{ secrets.GHZ_TOKEN }}
-            registry: "https://npm.pkg.github.com/"
-            dry-run: true
-
-      - name: Do some more stuff with npm
-        run: npm whoami
-        env:
-             NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - if: steps.publishtogh.outputs.type
-        run: |
-          echo "Version changed: ${{ steps.publishtogh.outputs.old-version }} => ${{ steps.publishtogh.outputs.version }}"
-        shell: bash
+      # - name: Publish to npm.pkg.github.com
+      #   id: publishtogh
+      #   uses: JS-DevTools/npm-publish@v3
+      #   with:
+      #       # token: ${{ secrets.GITHUB_TOKEN }}
+      #       token: ${{ secrets.GHZ_TOKEN }}
+      #       registry: "https://npm.pkg.github.com/"
+      #       dry-run: true
+      
+      # - if: steps.publishtogh.outputs.type
+      #   run: |
+      #     echo "Version changed: ${{ steps.publishtogh.outputs.old-version }} => ${{ steps.publishtogh.outputs.version }}"
+      #   shell: bash
 
     #   - name: publish to npmjs.com
     #     run: npm publish
