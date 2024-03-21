@@ -29,15 +29,15 @@ jobs:
         id: get_version
         run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
       
-      # - name: Create github Release
-      #   uses: actions/create-release@v1
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #   with:
-      #     tag_name: ${{ steps.get_version.outputs.VERSION }}
-      #     release_name: ${{ steps.get_version.outputs.VERSION }}
-      #     draft: false
-      #     prerelease: false
+      - name: Create github Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.get_version.outputs.VERSION }}
+          release_name: ${{ steps.get_version.outputs.VERSION }}
+          draft: false
+          prerelease: false
 
       # - name: Create Release 2
       #   uses: actions/create-release@v1
@@ -64,11 +64,11 @@ jobs:
       - name: Build npm Packages
         run: pnpm run build
 
-      - name: Publish to registry.npmjs.org
-        uses: JS-DevTools/npm-publish@v3
-        with:
-            token: ${{ secrets.NPM_TOKEN }}
-            registry: "https://registry.npmjs.org/"
+      # - name: Publish to registry.npmjs.org
+      #   uses: JS-DevTools/npm-publish@v3
+      #   with:
+      #       token: ${{ secrets.NPM_TOKEN }}
+      #       registry: "https://registry.npmjs.org/"
 
       - name: Publish to npm.pkg.github.com
         uses: JS-DevTools/npm-publish@v3
