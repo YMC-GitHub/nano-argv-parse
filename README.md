@@ -41,6 +41,15 @@ yarn add nano-argv-parse
 pnpm add nano-argv-parse
 ```
 
+```ts
+import {nanoargs} from 'nano-argv-parse'
+console.log(nanoargs(`ns cmd -a -b -c -- -a -b -c`))
+// {
+//   flags: { a: true, b: true, c: true },
+//   argv: [ 'ns', 'cmd' ],
+//   extras: [ '-a', '-b', '-c' ]
+// }
+```
 
 ## Product Closed Loop
 
