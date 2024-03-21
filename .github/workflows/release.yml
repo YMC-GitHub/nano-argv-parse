@@ -75,7 +75,8 @@ jobs:
         id: publishtogh
         uses: JS-DevTools/npm-publish@v3
         with:
-            token: ${{ secrets.GITHUB_TOKEN }}
+            # token: ${{ secrets.GITHUB_TOKEN }}
+            token: ${{ secrets.GHZ_TOKEN }}
             registry: "https://npm.pkg.github.com"
 
       - if: steps.publishtogh.outputs.type
