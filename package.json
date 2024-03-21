@@ -53,5 +53,10 @@
   },
   "bugs": {
     "url": "https://github.com/ymc-github/nano-argv-parse/issues"
-  }
+  },
+  "keywords": [
+    "nano-argv",
+    "parse",
+    "cmd style args"
+  ]
 }
