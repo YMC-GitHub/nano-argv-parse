@@ -81,6 +81,11 @@ jobs:
             registry: "https://npm.pkg.github.com/"
             dry-run: true
 
+      - name: Do some more stuff with npm
+        run: npm whoami
+        env:
+             NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       - if: steps.publishtogh.outputs.type
         run: |
           echo "Version changed: ${{ steps.publishtogh.outputs.old-version }} => ${{ steps.publishtogh.outputs.version }}"
