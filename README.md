@@ -1,4 +1,4 @@
-a library package for parsing command-line style parameters
+a library package to pasre config from command-line style string or argv
 
 ## background
 
