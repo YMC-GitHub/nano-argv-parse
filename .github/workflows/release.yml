@@ -28,17 +28,8 @@ jobs:
       - name: Get version
         id: get_version
         run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
-      
-      # - name: Create github Release
-      #   uses: actions/create-release@v1
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #   with:
-      #     tag_name: ${{ steps.get_version.outputs.VERSION }}
-      #     release_name: ${{ steps.get_version.outputs.VERSION }}
-      #     draft: false
-      #     prerelease: false
 
+      # done
       - name: Create github Release
         uses: softprops/action-gh-release@v2
         with:
@@ -72,17 +63,25 @@ jobs:
       - name: Build npm Packages
         run: pnpm run build
 
+      # done
       # - name: Publish to registry.npmjs.org
       #   uses: JS-DevTools/npm-publish@v3
       #   with:
       #       token: ${{ secrets.NPM_TOKEN }}
       #       registry: "https://registry.npmjs.org/"
 
+      # fail
       - name: Publish to npm.pkg.github.com
+        id: publishtogh
         uses: JS-DevTools/npm-publish@v3
         with:
             token: ${{ secrets.GITHUB_TOKEN }}
             registry: "https://npm.pkg.github.com"
+
+      - if: steps.publishtogh.outputs.type
+        run: |
+          echo "Version changed: ${{ steps.publishtogh.outputs.old-version }} => ${{ steps.publishtogh.outputs.version }}"
+        shell: bash
 
     #   - name: publish to npmjs.com
     #     run: npm publish
