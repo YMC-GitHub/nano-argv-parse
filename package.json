@@ -58,5 +58,6 @@
     "nano-argv",
     "parse",
     "cmd style args"
-  ]
+  ],
+  "license": "MIT"
 }
