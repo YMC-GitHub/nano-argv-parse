@@ -1,6 +1,18 @@
 import './style.css'
 import typescriptLogo from './typescript.svg'
-import { setupCounter,nanoargs } from '../lib/main'
+// import { setupCounter,nanoargs } from '../lib/main'
+import { nanoargs } from '../lib/main'
+// import { setupCounter } from '../lib/counter'
+
+export function setupCounter(element: HTMLButtonElement) {
+  let counter = 0;
+  const setCounter = (count: number) => {
+    counter = count;
+    element.innerHTML = `count is ${counter}`;
+  };
+  element.addEventListener("click", () => setCounter(++counter));
+  setCounter(0);
+}
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
