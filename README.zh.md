@@ -1,6 +1,18 @@
 
 一个类库包，用于解析命令行风格参数
 
+## 文件大小
+
+file | size | gzip | brotli
+:---- | :---- | :---- | :----
+dist/main.cjs | 3.54kb | 1.26kb | 1.09kb
+dist/main.js | 3.39kb | 1.19kb | 1.04kb
+dist/main.min.cjs | 1.99kb | 0.96kb | 0.85kb
+dist/main.min.js | 1.85kb | 0.90kb | 0.80kb
+dist/main.umd.cjs | 4.09kb | 1.40kb | 1.22kb
+dist/main.umd.min.cjs | 2.02kb | 1.00kb | 0.89kb
+
+
 ## 项目背景
 
 为什么会用这样的一个类库包？它有什么价值吗？
@@ -23,8 +35,11 @@
 - 您可以通过npm cdn 直接引入
 ```html
 <!-- unpkg.com/:package@:version/:file -->
-<!-- unpkg.com/nano-argv-parse@1.0.0/dist/main.js -->
+<script src="https://unpkg.com/nano-argv-parse@1.0.0/dist/main.js"></script>
+
 <!-- jsdelivr -->
+<script src="https://cdn.jsdelivr.net/npm/nano-argv-parse@1.0.0/dist/main.js"></script>
+
 <!-- unpkg.zhimg.com -->
 ```
 

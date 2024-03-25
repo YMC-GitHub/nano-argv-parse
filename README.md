@@ -1,5 +1,16 @@
 a library package to pasre config from command-line style string or argv
 
+## File size
+
+file | size | gzip | brotli
+:---- | :---- | :---- | :----
+dist/main.cjs | 3.54kb | 1.26kb | 1.09kb
+dist/main.js | 3.39kb | 1.19kb | 1.04kb
+dist/main.min.cjs | 1.99kb | 0.96kb | 0.85kb
+dist/main.min.js | 1.85kb | 0.90kb | 0.80kb
+dist/main.umd.cjs | 4.09kb | 1.40kb | 1.22kb
+dist/main.umd.min.cjs | 2.02kb | 1.00kb | 0.89kb
+
 ## background
 
 why develop such a library package? Does it have any value?
@@ -23,10 +34,14 @@ What do people often say about opportunity? I think it is: a person in the accum
 - You can import directly via npm cdn
 ```html
 <!-- unpkg.com/:package@:version/:file -->
-<!-- unpkg.com/nano-argv-parse@1.0.0/dist/main.js -->
+<script src="https://unpkg.com/nano-argv-parse@1.0.0/dist/main.js"></script>
+
 <!-- jsdelivr -->
+<script src="https://cdn.jsdelivr.net/npm/nano-argv-parse@1.0.0/dist/main.js"></script>
+
 <!-- unpkg.zhimg.com -->
 ```
+
 
 - You can install it via the npm library tool
 ```bash
